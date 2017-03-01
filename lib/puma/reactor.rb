@@ -78,7 +78,8 @@ module Puma
               # Don't report these to the lowlevel_error handler, otherwise
               # will be flooding them with errors when persistent connections
               # are closed.
-              rescue ConnectionError
+              rescue ConnectionError => e
+                File.write("/tmp/write_500_3", e.message)
                 c.write_500
                 c.close
 
@@ -110,6 +111,7 @@ module Puma
               rescue StandardError => e
                 @server.lowlevel_error(e, c.env)
 
+                File.write("/tmp/write_500_2", e.message)
                 c.write_500
                 c.close
 

@@ -420,6 +420,7 @@ module Puma
     end
 
     def write_500
+      File.write("/tmp/write_500", "called")
       begin
         @io << ERROR_500_RESPONSE
       rescue StandardError

@@ -471,6 +471,7 @@ module Puma
       rescue StandardError => e
         lowlevel_error(e, client.env)
 
+        File.write("/tmp/write_500_1", e.message)
         client.write_500
 
         @events.unknown_error self, e, "Read"

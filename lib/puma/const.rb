@@ -60,7 +60,7 @@ module Puma
     428 => 'Precondition Required',
     429 => 'Too Many Requests',
     431 => 'Request Header Fields Too Large',
-    500 => 'Internal Server Error',
+    500 => 'Custom 1 Internal Server Error',
     501 => 'Not Implemented',
     502 => 'Bad Gateway',
     503 => 'Service Unavailable',
@@ -134,7 +134,7 @@ module Puma
     CONTENT_LENGTH = "CONTENT_LENGTH".freeze
 
     # Indicate that there was an internal error, obviously.
-    ERROR_500_RESPONSE = "HTTP/1.1 500 Internal Server Error\r\n\r\n".freeze
+    ERROR_500_RESPONSE = "HTTP/1.1 500 Custom 2 Internal Server Error\r\n\r\n".freeze
 
     # A common header for indicating the server is too busy.  Not used yet.
     ERROR_503_RESPONSE = "HTTP/1.1 503 Service Unavailable\r\n\r\nBUSY".freeze
