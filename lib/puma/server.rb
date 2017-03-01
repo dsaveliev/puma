@@ -241,6 +241,7 @@ module Puma
     # are handled synchronously.
     #
     def run(background=true)
+      File.write("/tmp/puma_server", "START")
       BasicSocket.do_not_reverse_lookup = true
 
       @events.fire :state, :booting
